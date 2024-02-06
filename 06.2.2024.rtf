@@ -1,0 +1,330 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1045{\fonttbl{\f0\fnil\fcharset238 Calibri;}{\f1\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22 Zad 2\par
+<!DOCTYPE html>\par
+<html lang="en">\par
+<head>\par
+  <meta charset="UTF-8">\par
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">\par
+  <title>Kalendarz</title>\par
+  <style>\par
+    table \{\par
+      border-collapse: collapse;\par
+      width: 100%;\par
+    \}\par
+    th, td \{\par
+      border: 1px solid #ddd;\par
+      padding: 8px;\par
+      text-align: center;\par
+    \}\par
+    th \{\par
+      background-color: #f2f2f2;\par
+    \}\par
+  </style>\par
+</head>\par
+<body>\par
+\par
+<h2>Kalendarz</h2>\par
+\par
+<table>\par
+  <thead>\par
+    <tr>\par
+      <th>Niedziela</th>\par
+      <th>Poniedzia\'b3ek</th>\par
+      <th>Wtorek</th>\par
+      <th>\'8croda</th>\par
+      <th>Czwartek</th>\par
+      <th>Pi\'b9tek</th>\par
+      <th>Sobota</th>\par
+    </tr>\par
+  </thead>\par
+  <tbody id="calendar-body">\par
+    <!-- W tym miejscu zostanie wstawiona tabela kalendarza -->\par
+  </tbody>\par
+</table>\par
+\par
+<script>\par
+  document.addEventListener('DOMContentLoaded', function() \{\par
+    // Pobierz aktualn\'b9 dat\'ea\par
+    var currentDate = new Date();\par
+\par
+    // Ustaw dat\'ea na pierwszy dzie\'f1 aktualnego miesi\'b9ca\par
+    currentDate.setDate(1);\par
+\par
+    // Pobierz dzie\'f1 tygodnia pierwszego dnia miesi\'b9ca\par
+    var firstDay = currentDate.getDay();\par
+\par
+    // Pobierz liczb\'ea dni w aktualnym miesi\'b9cu\par
+    var lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();\par
+\par
+    // Pobierz element tbody\par
+    var calendarBody = document.getElementById('calendar-body');\par
+\par
+    // Inicjalizuj zmienn\'b9 do przechowywania kom\f1\lang1033\'f3rek tabeli\par
+    var cells = '';\par
+\par
+    // Dodaj puste kom\'f3rki przed pierwszym dniem miesi\f0\'b9ca\par
+    for (var i = 0; i < firstDay; i++) \{\par
+      cells += '<td></td>';\par
+    \}\par
+\par
+    // Dodaj dni miesi\'b9ca\par
+    for (var day = 1; day <= lastDay; day++) \{\par
+      cells += '<td>' + day + '</td>';\par
+      if ((firstDay + day - 1) % 7 === 0) \{\par
+        cells += '</tr><tr>';\par
+      \}\par
+    \}\par
+\par
+    // Uzupe\'b3nij puste kom\f1\'f3rki po ostatnim dniu miesi\f0\'b9ca\par
+    var remainingCells = 7 - (lastDay + firstDay) % 7;\par
+    for (var j = 0; j < remainingCells; j++) \{\par
+      cells += '<td></td>';\par
+    \}\par
+\par
+    // Umie\'9c\'e6 kom\f1\'f3rki w tabeli\par
+    calendarBody.innerHTML = '<tr>' + cells + '</tr>';\par
+  \});\par
+</script>\par
+\par
+</body>\par
+</html>\par
+\f0\fs48\lang1045 Zad 3\par
+\fs22 <!DOCTYPE html>\par
+<html lang="en">\par
+<head>\par
+  <meta charset="UTF-8">\par
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">\par
+  <title>Tabela</title>\par
+  <style>\par
+    table \{\par
+      border-collapse: collapse;\par
+      width: 100%;\par
+    \}\par
+    th, td \{\par
+      border: 1px solid #ddd;\par
+      padding: 8px;\par
+      text-align: center;\par
+    \}\par
+    th \{\par
+      background-color: #4CAF50;\par
+      color: white;\par
+    \}\par
+  </style>\par
+</head>\par
+<body>\par
+\par
+<table>\par
+  <thead>\par
+    <tr>\par
+      <th>Nag\'b3\f1\lang1033\'f3wek 1</th>\par
+      <th>Nag\f0\'b3\f1\'f3wek 2</th>\par
+      <th>Nag\f0\'b3\f1\'f3wek 3</th>\par
+    </tr>\par
+  </thead>\par
+  <tbody>\par
+    <tr>\par
+      <td>Kom\'f3rka 1</td>\par
+      <td>Kom\'f3rka 2</td>\par
+      <td>Kom\'f3rka 3</td>\par
+    </tr>\par
+    <tr>\par
+      <td>Kom\'f3rka 4</td>\par
+      <td>Kom\'f3rka 5</td>\par
+      <td>Kom\'f3rka 6</td>\par
+    </tr>\par
+  </tbody>\par
+</table>\par
+\par
+</body>\par
+</html>\par
+\f0\fs48\lang1045 Zad 4\par
+\fs22 <!DOCTYPE html>\par
+<html lang="en">\par
+<head>\par
+  <meta charset="UTF-8">\par
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">\par
+  <title>Formularz Maturalny</title>\par
+  <style>\par
+    body \{\par
+      background-color: #4CAF50;\par
+      color: white;\par
+      font-family: Arial, sans-serif;\par
+    \}\par
+    form \{\par
+      background-color: #008000;\par
+      padding: 20px;\par
+      border-radius: 10px;\par
+      width: 400px;\par
+      margin: 0 auto;\par
+    \}\par
+    label \{\par
+      display: block;\par
+      margin-bottom: 8px;\par
+    \}\par
+    select, input, textarea \{\par
+      width: 100%;\par
+      padding: 8px;\par
+      margin-bottom: 10px;\par
+      border: 1px solid #ddd;\par
+      border-radius: 4px;\par
+      box-sizing: border-box;\par
+    \}\par
+    input[type="radio"], input[type="checkbox"] \{\par
+      margin-right: 5px;\par
+    \}\par
+    input[type="submit"], input[type="reset"] \{\par
+      background-color: #4CAF50;\par
+      color: white;\par
+      padding: 10px 15px;\par
+      border: none;\par
+      border-radius: 4px;\par
+      cursor: pointer;\par
+    \}\par
+    input[type="submit"]:hover, input[type="reset"]:hover \{\par
+      background-color: #45a049;\par
+    \}\par
+  </style>\par
+</head>\par
+<body>\par
+\par
+<form action="mailto:dyrekcja@szkola.pl" method="post" enctype="text/plain">\par
+  <label for="name">Imi\'ea i Nazwisko:</label>\par
+  <input type="text" id="name" name="name" required>\par
+\par
+  <label for="class">Numer Klasy:</label>\par
+  <select id="class" name="class" required>\par
+    <option value="A">A</option>\par
+    <option value="B">B</option>\par
+    <!-- Dodaj inne klasy, je\'9cli istniej\'b9 -->\par
+  </select>\par
+\par
+  <label>Przedmioty Maturalne:</label>\par
+  <label><input type="checkbox" name="subject" value="matematyka"> Matematyka</label>\par
+  <label><input type="checkbox" name="subject" value="j\'eazyk_polski"> J\'eazyk Polski</label>\par
+  <!-- Dodaj inne przedmioty, je\'9cli istniej\'b9 -->\par
+\par
+  <label for="level">Poziom Arkusza:</label>\par
+  <select id="level" name="level" required>\par
+    <option value="podstawowy">Podstawowy</option>\par
+    <option value="rozszerzony">Rozszerzony</option>\par
+  </select>\par
+\par
+  <label for="gender">P\'b3e\'e6:</label>\par
+  <label><input type="radio" name="gender" value="m"> M\'ea\'bfczyzna</label>\par
+  <label><input type="radio" name="gender" value="f"> Kobieta</label>\par
+\par
+  <label for="comments">Uwagi:</label>\par
+  <textarea id="comments" name="comments" rows="4"></textarea>\par
+\par
+  <input type="submit" value="Wy\'9clij">\par
+  <input type="reset" value="Wyczy\'9c\'e6">\par
+</form>\par
+\par
+</body>\par
+</html>\par
+Zad 5\par
+type="submit":\par
+Zastosowanie: Ten atrybut jest stosowany do znacznika <input>. Oznacza, \'bfe dany element <input> jest przyciskiem s\'b3u\'bf\'b9cym do wysy\'b3ania formularza.\par
+scrolling="no/yes/auto":\par
+\par
+Zastosowanie: Ten atrybut jest stosowany do znacznika <iframe>. Okre\'9cla, czy w obszarze ramki <iframe> ma by\'e6 dost\'eapne paskowanie.\par
+maxlength="x":\par
+\par
+Zastosowanie: Ten atrybut jest stosowany do znacznika <input> i <textarea>. Okre\'9cla maksymaln\'b9 d\'b3ugo\'9c\'e6 tekstu, jaka mo\'bfe by\'e6 wprowadzona do pola tekstowego.\par
+cellspacing="x":\par
+\par
+Zastosowanie: Ten atrybut jest stosowany do znacznika <table>. Okre\'9cla odst\'eap mi\'eadzy kom\f1\lang1033\'f3rkami w tabeli.\par
+id="header":\par
+\par
+Zastosowanie: Ten atrybut jest stosowany do dowolnego znacznika w HTML. S\f0\'b3u\'bfy do jednoznacznego identyfikowania danego elementu w dokumencie, co jest przydatne np. do stylizacji CSS lub manipulacji JavaScript.\par
+type="text":\par
+\par
+Zastosowanie: Ten atrybut jest stosowany do znacznika <input>. Oznacza, \'bfe dany element <input> jest polem tekstowym, w kt\f1\'f3rym u\f0\'bfytkownik mo\'bfe wprowadza\'e6 tekst.\par
+Zad 6\par
+type="email":\par
+\par
+Opis: U\'bfywane do wprowadzania adres\f1\'f3w e-mail. Przegl\f0\'b9darki mog\'b9 dostarcza\'e6 specyficzne funkcje zwi\'b9zane z wprowadzaniem adres\f1\'f3w e-mail, takie jak sprawdzanie poprawno\f0\'9cci sk\'b3adni.\par
+type="url":\par
+\par
+Opis: S\'b3u\'bfy do wprowadzania adres\f1\'f3w URL. Podobnie jak w przypadku type="email", przegl\f0\'b9darki mog\'b9 oferowa\'e6 specyficzne funkcje dla wprowadzania adres\f1\'f3w internetowych.\par
+type="tel":\par
+\par
+Opis: Przeznaczone do wprowadzania numer\'f3w telefon\'f3w. Przegl\f0\'b9darki mog\'b9 dostarcza\'e6 specjalne klawiatury numeryczne lub oferowa\'e6 dodatkowe funkcje zwi\'b9zane z numerami telefon\f1\'f3w.\par
+type="date":\par
+\par
+Opis: Umo\f0\'bfliwia wybieranie daty. Po klikni\'eaciu w pole data, przegl\'b9darka mo\'bfe dostarczy\'e6 interfejs do wygodnego wybierania daty.\par
+type="password":\par
+\par
+Opis: Przeznaczone do wprowadzania hase\'b3. R\f1\'f3\f0\'bfni si\'ea od type="text" przez maskowanie wprowadzanego tekstu, zazwyczaj za pomoc\'b9 gwiazdek lub kropek, w celu ukrycia has\'b3a przed osobami znajduj\'b9cymi si\'ea wok\f1\'f3\f0\'b3 u\'bfytkownika.\par
+Zad 7\par
+<!DOCTYPE html>\par
+<html lang="en">\par
+<head>\par
+  <meta charset="UTF-8">\par
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">\par
+  <title>Formularz Samochodowy</title>\par
+  <style>\par
+    body \{\par
+      font-family: Arial, sans-serif;\par
+      background-color: #8B4513; /* Br\'b9zowe t\'b3o */\par
+      color: white;\par
+    \}\par
+    form \{\par
+      max-width: 400px;\par
+      margin: 20px auto;\par
+      background-color: #D2B48C; /* Kolor formularza */\par
+      padding: 20px;\par
+      border-radius: 8px;\par
+    \}\par
+    label \{\par
+      display: block;\par
+      margin-bottom: 8px;\par
+    \}\par
+    input[type="text"], select \{\par
+      width: 100%;\par
+      padding: 8px;\par
+      margin-bottom: 10px;\par
+      border: 1px solid #ddd;\par
+      border-radius: 4px;\par
+      box-sizing: border-box;\par
+    \}\par
+    input[type="submit"] \{\par
+      background-color: #4CAF50;\par
+      color: white;\par
+      padding: 10px 15px;\par
+      border: none;\par
+      border-radius: 4px;\par
+      cursor: pointer;\par
+    \}\par
+    input[type="submit"]:hover \{\par
+      background-color: #45a049;\par
+    \}\par
+  </style>\par
+</head>\par
+<body>\par
+\par
+<form action="#" method="post">\par
+  <h2>Prosz\'ea wybra\'e6 mark\'ea samochodu z listy lub wpisa\'e6 w\'b3asn\'b9:</h2>\par
+\par
+  <label for="carBrand">Marka Samochodu:</label>\par
+  <select id="carBrand" name="carBrand" required>\par
+    <option value="audi">Audi</option>\par
+    <option value="bmw">BMW</option>\par
+    <option value="mercedes">Mercedes-Benz</option>\par
+    <option value="toyota">Toyota</option>\par
+    <!-- Dodaj inne marki samochod\f1\'f3w, je\f0\'9cli istniej\'b9 -->\par
+  </select>\par
+\par
+  <!-- Opcjonalnie mo\'bfna tak\'bfe doda\'e6 pole tekstowe dla wprowadzenia nowej marki samochodu -->\par
+  <!-- <label for="newCarBrand">Nowa Marka Samochodu:</label>\par
+  <input type="text" id="newCarBrand" name="newCarBrand"> -->\par
+\par
+  <input type="submit" value="Wy\'9clij">\par
+</form>\par
+\par
+</body>\par
+</html>\par
+\'a3ukasz Papie\'bf 3D\par
+}
+ 
